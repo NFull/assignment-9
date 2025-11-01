@@ -1,9 +1,12 @@
 console.log("script.js loaded");
 
+// endpoint for Giphy API
 let endpoint = "https://api.giphy.com/v1/gifs/random?api_key=DUeb4i1rrArL1EFYsh29NAsBES84WPN3&tag=&rating=g";
 
+// array to hold image URLs
 let images = [];
 
+// function to fetch GIFs from the API
 async function fetchGifs() {
   try {
     const response = await fetch(endpoint);
@@ -21,10 +24,11 @@ async function fetchGifs() {
     return [];
   }
 }
-
+ // DOM elements
 const gifContainer = document.querySelector('#gif-container');
 const button = document.querySelector('#fetch-gif-btn');
 
+// event listener for button click
 button.addEventListener('click', async () => {
   await fetchGifs();
   images.forEach(url => {
